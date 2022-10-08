@@ -16,7 +16,7 @@ relativeTimeHours
 durationHours
 ```
 
-## Plantform
+## Platform
 
 - [x] atcoder
 - [x] codeforces
