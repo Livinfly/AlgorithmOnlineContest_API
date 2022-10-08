@@ -9,14 +9,14 @@ The files you got are json.
 Most of them will contain flowing element and you can cover my code to achieve your goal.
 
 ```
-plantform
+platform
 name
 startTime
 relativeTimeHours
 durationHours
 ```
 
-## Plantform
+## Platform
 
 - [x] atcoder
 - [x] codeforces
