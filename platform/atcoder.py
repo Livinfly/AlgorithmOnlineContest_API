@@ -21,7 +21,7 @@ soup = BeautifulSoup(content, 'lxml')
 
 contestList = {"result": []}
 
-plantform = 'atcoder'
+platform = 'atcoder'
 
 content = soup.select('#contest-table-upcoming tbody tr')
 for contest in content:
@@ -30,12 +30,12 @@ for contest in content:
     name = contest.select('td')[1].find('a').get_text()
     durationHours = contest.select('td')[2].get_text()
     contestList["result"].append({
-        "plantform": plantform,
+        "platform": platform,
         "name": name,
         "startTime": startTime,
         "durationHours": durationHours
     })
-    # print(plantform, startTime, name, durationHours)
+    # print(platform, startTime, name, durationHours)
 with open(lib_path + '/contestJson/atcoder.json', 'w') as fp:
     json.dump(contestList, fp)
 
@@ -45,7 +45,7 @@ print(contestList)
 # print(contest_list)
 
 '''
-  plantform
+  platform
   name
   startTime
   relativeTimeHours

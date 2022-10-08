@@ -29,9 +29,10 @@ content = json.dumps(content)
 with open(lib_path + '/contestJson/codeforces.json', 'w') as fp:
     fp.write(content)
     # print(response)
+print(content)
 
 '''
-  plantform
+  platform
   name
   startTime
   relativeTimeHours
