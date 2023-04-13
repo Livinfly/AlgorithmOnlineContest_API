@@ -20,7 +20,10 @@ durationHours
 
 - [x] atcoder
 - [x] codeforces
+<<<<<<< HEAD
 - [x] nowcoder
+=======
+>>>>>>> 2d053721b6b5d3d6235aafe3e9a71c7beb5738dc
 - [ ] leetcode
 - [ ] luogu
 - [ ] topcoder
