@@ -13,41 +13,41 @@ import methods
 url = 'https://atcoder.jp/contests/?lang=en'
 
 response = methods.getResponse(url)
-content = response.read().decode('utf-8')
+if response != -1 :
 
-soup = BeautifulSoup(content, 'lxml')
+    content = response.read().decode('utf-8')
 
-# print(soup)
+    soup = BeautifulSoup(content, 'lxml')
 
-contestList = {"result": []}
+    # print(soup)
 
-platform = 'atcoder'
+    contestList = {"result": []}
 
-content = soup.select('#contest-table-upcoming tbody tr')
-for contest in content:
-    t = contest.find('time').get_text()[:-8]
-    startTime = t[:-5] + str(int(t[-5:-3]) - 1) + t[-3:]
-    name = contest.select('td')[1].find('a').get_text()
-    durationHours = contest.select('td')[2].get_text()
-    contestList["result"].append({
-        "platform": platform,
-        "name": name,
-        "startTime": startTime,
-        "durationHours": durationHours
-    })
-    # print(platform, startTime, name, durationHours)
-with open(lib_path + '/contestJson/atcoder.json', 'w') as fp:
-    json.dump(contestList, fp)
+    platform = 'atcoder'
 
-print(contestList)
+    content = soup.select('#contest-table-upcoming tbody tr')
+    for contest in content:
+        t = contest.find('time').get_text()[:-8]
+        startTime = t[:-5] + str(int(t[-5:-3]) - 1) + t[-3:]
+        name = contest.select('td')[1].find('a').get_text()
+        durationHours = contest.select('td')[2].get_text()
+        contestList["result"].append({
+            "platform": platform,
+            "name": name,
+            "startTime": startTime,
+            "durationHours": durationHours
+        })
+        # print(platform, startTime, name, durationHours)
+    with open(lib_path + '/contestJson/atcoder.json', 'w') as fp:
+        json.dump(contestList, fp)
 
+    print(contestList)
 
-# print(contest_list)
 
 '''
-  platform
-  name
-  startTime
-  relativeTimeHours
-  durationHours
+platform
+name
+startTime
+*relativeTimeHours
+durationHours
 '''
